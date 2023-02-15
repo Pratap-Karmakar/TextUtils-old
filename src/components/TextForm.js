@@ -3,16 +3,24 @@ import React, { useState } from 'react'
 export default function TextForm(props) {
     const [text,setText]=useState('');
 
+  // to set the text to upper case
   const handleUpClick=()=>{
     let newText=text.toUpperCase();
     setText(newText);
   }
+
+  // to set the text to lower case
   const handleLowerClick=()=>{
     let newText=text.toLowerCase();
     setText(newText);
   }
 
-  // to edit the text area
+  // to clear the text
+  const handleClearText=()=>{
+    setText('');
+  }
+
+  // to edit the textarea
   const handleOnChange=(event)=>{
     setText(event.target.value);
   }
@@ -26,6 +34,7 @@ export default function TextForm(props) {
         </div>
         <button className='btn btn-primary' onClick={handleUpClick}>Convert to UpperCase</button>
         <button className='btn btn-primary' onClick={handleLowerClick} style={{marginLeft:4}}>Convert to LowerCase</button>
+        <button className='btn btn-primary' onClick={handleClearText} style={{marginLeft:4}}>Clear text</button>
       </div>
 
       <div className='my-4'>
